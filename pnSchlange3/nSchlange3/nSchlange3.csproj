@@ -46,6 +46,7 @@
     <Compile Include="Figure.cs" />
     <Compile Include="LinieHorizontal.cs" />
     <Compile Include="LinieVertikal.cs" />
+    <Compile Include="Nahrung.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

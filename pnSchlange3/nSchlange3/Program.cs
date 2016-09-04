@@ -11,14 +11,22 @@ namespace nSchlange3
     {
         static void Main(string[] args)
         {
+            //Spielfeld
             SpielFeld spielFeld = new SpielFeld(120,30,'+');
             spielFeld.ZeichnenWaende();
 
+            //Schlange
             Point point = new Point(3, 15, '*');
             Schlange schlange = new Schlange(point, 3, Richtung.RECHTS);
+
+            //Nahrung
+            Nahrung nahrung = new Nahrung();
+            Point pNahrung = nahrung.Erzeugen(spielFeld, '$');
+            pNahrung.Zeichnen();
+
             Console.ReadKey();
-            while (true)                                
-            {                    
+            while (true)
+            {
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo taste = Console.ReadKey();
@@ -27,7 +35,7 @@ namespace nSchlange3
                 Thread.Sleep(100);
                 schlange.Zeichnen();
                 schlange.Bewegen();
-            }            
+            }
         }
     } 
 }
