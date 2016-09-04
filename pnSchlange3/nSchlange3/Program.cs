@@ -9,8 +9,14 @@ namespace nSchlange3
 {
     class Program
     {
+        static int nahrungsNr = 1;
+        static int nahrungsNrPositionX = 100;
+        static int nahrungsNrPositionY = 3;
+
         static void Main(string[] args)
         {
+
+
             //Spielfeld
             SpielFeld spielFeld = new SpielFeld(120,30,'+');
             spielFeld.ZeichnenWaende();
@@ -31,6 +37,9 @@ namespace nSchlange3
             {
                 if(schlange.NahrungKollision(pNahrung))
                 {
+                    nahrungsNr++;
+                    Console.SetCursorPosition(nahrungsNrPositionX, nahrungsNrPositionY);
+                    Console.Write(nahrungsNr);
                     schlange.Wachsen(pNahrung);
                     nahrung = new Nahrung(spielFeld, '$');
                     pNahrung = nahrung.Erzeugen(schlange);
