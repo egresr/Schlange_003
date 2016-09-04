@@ -10,6 +10,12 @@ namespace nSchlange3
     {
         static void Main(string[] args)
         {
+            Point point = new Point(3, 3, '+');
+            point.Zeichnen();
+
+
+
+            Console.ReadLine();
         }
     }
 }
