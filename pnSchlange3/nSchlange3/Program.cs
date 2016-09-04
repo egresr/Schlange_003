@@ -16,19 +16,18 @@ namespace nSchlange3
 
             Point point = new Point(3, 15, '*');
             Schlange schlange = new Schlange(point, 3, Richtung.RECHTS);
-
-            while(true)
-            {
+            Console.ReadKey();
+            while (true)                                
+            {                    
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo taste = Console.ReadKey();
+                    schlange.Steuern(taste);
+                }
                 Thread.Sleep(100);
                 schlange.Zeichnen();
                 schlange.Bewegen();
-            }
-
-
-
-
-
-            Console.ReadLine();
+            }            
         }
     } 
 }
