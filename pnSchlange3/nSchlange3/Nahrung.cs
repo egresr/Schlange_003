@@ -8,15 +8,45 @@ namespace nSchlange3
 {
     class Nahrung
     {
-        Random random = new Random();    
-
-        public Point Erzeugen(SpielFeld spielfeld, char nahrungSymbol)
+        int maxPositionX;
+        int maxPositionY;
+        int randomPositionX;
+        int randomPositionY;
+        SpielFeld spielfeld;
+        Random random = new Random();
+        
+        public Nahrung(SpielFeld _spielfeld, char _nahrungSymbol)
         {
-            int maxPositionX = spielfeld.GetBreite();
-            int maxPositionY = spielfeld.GetHohe();
-            int randomPositionX = random.Next(1, maxPositionX);
-            int randomPoitionY = random.Next(1, maxPositionY);
-            return new Point(randomPositionX, randomPoitionY, nahrungSymbol);
+            spielfeld = _spielfeld;
+           
+            randomPositionX = GenerierenRandomPositionX();
+            randomPositionY = GenerierenRandomPositionY();
+        }    
+
+        public Point Erzeugen(Schlange schlange)
+        {
+
+
+            if (schlange.GetPositionX() == randomPositionX || schlange.GetPositionY() == randomPositionX)
+            {
+                randomPositionX = GenerierenRandomPositionX();
+                randomPositionY = GenerierenRandomPositionY();
+
+            }
+            return new Point(randomPositionX, randomPositionY, '$');
         }
+
+        private int GenerierenRandomPositionX()
+        {
+            maxPositionX = spielfeld.GetBreite();
+            return random.Next(1, maxPositionX);
+        }
+
+        private int GenerierenRandomPositionY()
+        {
+            maxPositionY = spielfeld.GetHohe();
+            return random.Next(1, maxPositionY);
+        }
+
     }
 }
