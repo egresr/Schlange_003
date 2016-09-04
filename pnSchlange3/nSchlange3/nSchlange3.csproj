@@ -49,6 +49,8 @@
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Richtung.cs" />
+    <Compile Include="Schlange.cs" />
     <Compile Include="SpielFeld.cs" />
   </ItemGroup>
   <ItemGroup>
